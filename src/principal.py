@@ -25,6 +25,8 @@ def main():
         "src/resources/palabra_incorrecta.wav")
     sonido_palabra_correcta = pygame.mixer.Sound(
         "src/resources/palabra_correcta.wav")
+    sonido_fin_de_juego = pygame.mixer.Sound(
+        "src/resources/fin_de_juego.wav")
 
     # Preparar la ventana
     pygame.display.set_caption("El juego del Mago Goma...")
@@ -58,8 +60,6 @@ def main():
         gameClock.tick(fps)
         totaltime += gameClock.get_time()
 
-        fps = 60
-
         # Buscar la tecla apretada del modulo de eventos de pygame
         for e in pygame.event.get():
 
@@ -92,6 +92,9 @@ def main():
                     palabra_usuario = ""
 
         segundos = TIEMPO_MAX - pygame.time.get_ticks()/1000
+        if segundos <= 0:
+            sonido_fin_de_juego.play()
+            break
 
         # Limpiar pantalla anterior
         screen.fill(COLOR_FONDO)
@@ -101,7 +104,7 @@ def main():
                             palabra_en_pantalla, puntos, segundos)
 
         pygame.display.flip()
-        gameClock.tick(60)
+        gameClock.tick(fps)
 
     while 1:
         # Esperar el QUIT del usuario
