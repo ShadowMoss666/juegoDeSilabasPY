@@ -18,7 +18,9 @@ def main():
     # Centrar la ventana y despues inicializar pygame
     os.environ["SDL_VIDEO_CENTERED"] = "1"
     pygame.init()
-    # pygame.mixer.init()
+    pygame.mixer.init()  # para los sonidos
+
+    sonido_tecla = pygame.mixer.Sound("src/resources/tecla_presionada.wav")
 
     # Preparar la ventana
     pygame.display.set_caption("El juego del Mago Goma...")
@@ -47,12 +49,12 @@ def main():
     dibujar_en_pantalla(screen, palabra_usuario,
                         palabra_en_pantalla, puntos, segundos)
 
-    while segundos > fps/1000:
-        # 1 frame cada 1/fps segundos
+    while 1:
+
         gameClock.tick(fps)
         totaltime += gameClock.get_time()
 
-        fps = 3
+        fps = 60
 
         # Buscar la tecla apretada del modulo de eventos de pygame
         for e in pygame.event.get():
@@ -64,6 +66,7 @@ def main():
 
         # Ver si fue apretada alguna tecla
             if e.type == KEYDOWN:
+                sonido_tecla.play()
                 letra = dame_letra_apretada(e.key)
                 palabra_usuario += letra  # es la palabra que escribe el usuario
                 if e.key == K_BACKSPACE:
@@ -92,6 +95,7 @@ def main():
                             palabra_en_pantalla, puntos, segundos)
 
         pygame.display.flip()
+        gameClock.tick(60)
 
     while 1:
         # Esperar el QUIT del usuario
