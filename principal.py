@@ -3,8 +3,8 @@ import os
 import random
 import sys
 import math
-
 import pygame
+
 from pygame.locals import *
 from configuracion import *
 from extras import *
@@ -31,20 +31,21 @@ def main():
     fps = FPS_inicial
 
     puntos = 0
-    palabra = ""
-    lemarioEnSilabas = []
-    listaPalabrasDiccionario = []
+    palabra_usuario = ""
+    lemario_en_silabas = []
+    lista_palabras_diccionario = []  # array con todas las palabras del diccionario
 
-    archivo = open("lemario.txt", "r")
+    lemario = open("lemario.txt", "r")
 
     # lectura del diccionario
-    lectura(archivo, listaPalabrasDiccionario)
+    lectura_lemario(lemario, lista_palabras_diccionario)
 
     # elige una al azar
-    palabraEnPantalla = nuevaPalabra(listaPalabrasDiccionario)
+    palabra_en_pantalla = nueva_palabra(lista_palabras_diccionario)
 ##
-    palabraEnPantallaAnterior = ""
-    dibujar(screen, palabra, palabraEnPantalla, puntos, segundos)
+    palabra_en_pantalla_anterior = ""
+    dibujar_en_pantalla(screen, palabra_usuario,
+                        palabra_en_pantalla, puntos, segundos)
 
     while segundos > fps/1000:
         # 1 frame cada 1/fps segundos
@@ -63,22 +64,23 @@ def main():
 
         # Ver si fue apretada alguna tecla
             if e.type == KEYDOWN:
-                letra = dameLetraApretada(e.key)
-                palabra += letra  # es la palabra que escribe el usuario
+                letra = dame_letra_apretada(e.key)
+                palabra_usuario += letra  # es la palabra que escribe el usuario
                 if e.key == K_BACKSPACE:
-                    palabra = palabra[0:len(palabra)-1]
+                    palabra_usuario = palabra_usuario[0:len(palabra_usuario)-1]
                 if e.key == K_RETURN:
                     # pasa la palabra a silabas
-                    palabraEnPantallaEnSilabas = palabraTOsilaba(
-                        palabraEnPantalla)
-                    if esCorrecta(palabraEnPantallaEnSilabas, palabra):
-                        puntos += 5
+                    palabra_en_pantalla_en_silabas = palabra_to_silabas(
+                        palabra_en_pantalla)
+                    if es_correcta(palabra_en_pantalla_en_silabas, palabra_usuario):
+                        puntos += puntaje(palabra_en_pantalla)
                     else:
-                        puntos -= 1
+                        puntos -= int(puntaje(palabra_en_pantalla)/2)
 
                     # elige una al azar
-                    palabraEnPantalla = nuevaPalabra(listaPalabrasDiccionario)
-                    palabra = ""
+                    palabra_en_pantalla = nueva_palabra(
+                        lista_palabras_diccionario)
+                    palabra_usuario = ""
 
         segundos = TIEMPO_MAX - pygame.time.get_ticks()/1000
 
@@ -86,7 +88,8 @@ def main():
         screen.fill(COLOR_FONDO)
 
         # Dibujar de nuevo todo
-        dibujar(screen, palabra, palabraEnPantalla, puntos, segundos)
+        dibujar_en_pantalla(screen, palabra_usuario,
+                            palabra_en_pantalla, puntos, segundos)
 
         pygame.display.flip()
 
@@ -97,7 +100,7 @@ def main():
                 pygame.quit()
                 return
 
-    archivo.close()
+    lemario.close()
 
 
 # Programa Principal ejecuta Main

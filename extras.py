@@ -4,93 +4,95 @@ from pygame.locals import *
 from configuracion import *
 
 
-def dameLetraApretada(key):
+def dame_letra_apretada(key):
     if key == K_a:
-        return("a")
+        return ("a")
     elif key == K_b:
-        return("b")
+        return ("b")
     elif key == K_c:
-        return("c")
+        return ("c")
     elif key == K_d:
-        return("d")
+        return ("d")
     elif key == K_e:
-        return("e")
+        return ("e")
     elif key == K_f:
-        return("f")
+        return ("f")
     elif key == K_g:
-        return("g")
+        return ("g")
     elif key == K_h:
-        return("h")
+        return ("h")
     elif key == K_i:
-        return("i")
+        return ("i")
     elif key == K_j:
-        return("j")
+        return ("j")
     elif key == K_k:
-        return("k")
+        return ("k")
     elif key == K_l:
-        return("l")
+        return ("l")
     elif key == K_m:
-        return("m")
+        return ("m")
     elif key == K_n:
-        return("n")
+        return ("n")
     elif key == K_o:
-        return("o")
+        return ("o")
     elif key == K_p:
-        return("p")
+        return ("p")
     elif key == K_q:
-        return("q")
+        return ("q")
     elif key == K_r:
-        return("r")
+        return ("r")
     elif key == K_s:
-        return("s")
+        return ("s")
     elif key == K_t:
-        return("t")
+        return ("t")
     elif key == K_u:
-        return("u")
+        return ("u")
     elif key == K_v:
-        return("v")
+        return ("v")
     elif key == K_w:
-        return("w")
+        return ("w")
     elif key == K_x:
-        return("x")
+        return ("x")
     elif key == K_y:
-        return("y")
+        return ("y")
     elif key == K_z:
-        return("z")
-    elif key == K_KP_MINUS:
-        return("-")
+        return ("z")
+    elif key == K_MINUS:
+        return ("-")
     elif key == K_SPACE:
-       return(" ")
+        return (" ")
     elif key == K_COMMA:
-        return("ñ")
+        return ("ñ")
     else:
-        return("")
+        return ("")
 
 
-def dibujar(screen, palabraUsuario, palabraActual, puntos, segundos):
+def dibujar_en_pantalla(screen, palabra_usuario, palabra_actual, puntos, segundos):
 
-    defaultFont= pygame.font.Font( pygame.font.get_default_font(), TAMANNO_LETRA)
-    defaultFontGrande= pygame.font.Font( pygame.font.get_default_font(), TAMANNO_LETRA_GRANDE)
+    defaultFont = pygame.font.Font(
+        pygame.font.get_default_font(), TAMANNO_LETRA)
+    defaultFontGrande = pygame.font.Font(
+        pygame.font.get_default_font(), TAMANNO_LETRA_GRANDE)
 
-    #Linea Horizontal
-    pygame.draw.line(screen, (255,255,255), (0, ALTO-70) , (ANCHO, ALTO-70), 5)
+    # Linea Horizontal
+    pygame.draw.line(screen, (255, 255, 255),
+                     (0, ALTO-70), (ANCHO, ALTO-70), 5)
 
-    #muestra lo que escribe el jugador
-    screen.blit(defaultFont.render(palabraUsuario, 1, COLOR_TEXTO), (190, 570))
-    #muestra el puntaje
-    screen.blit(defaultFont.render("Puntos: " + str(puntos), 1, COLOR_TEXTO), (680, 10))
-    #muestra los segundos y puede cambiar de color con el tiempo
-    if(segundos<15):
-        ren = defaultFont.render("Tiempo: " + str(int(segundos)), 1, COLOR_TIEMPO_FINAL)
+    # muestra lo que escribe el jugador
+    screen.blit(defaultFont.render(
+        palabra_usuario, 1, COLOR_TEXTO), (190, 570))
+    # muestra el puntaje
+    screen.blit(defaultFont.render(
+        "Puntos: " + str(puntos), 1, COLOR_TEXTO), (680, 10))
+    # muestra los segundos y puede cambiar de color con el tiempo
+    if (segundos < 15):
+        ren = defaultFont.render(
+            "Tiempo: " + str(int(segundos)), 1, COLOR_TIEMPO_FINAL)
     else:
-        ren = defaultFont.render("Tiempo: " + str(int(segundos)), 1, COLOR_TEXTO)
+        ren = defaultFont.render(
+            "Tiempo: " + str(int(segundos)), 1, COLOR_TEXTO)
     screen.blit(ren, (10, 10))
 
-    #muestra la palabra
-    screen.blit(defaultFontGrande.render(palabraActual, 1, COLOR_LETRAS), (ANCHO//2-len(palabraActual)*TAMANNO_LETRA_GRANDE//4,ALTO-400))
-
-
-
-
-
-
+    # muestra la palabra
+    screen.blit(defaultFontGrande.render(palabra_actual, 1, COLOR_LETRAS),
+                (ANCHO//2-len(palabra_actual)*TAMANNO_LETRA_GRANDE//4, ALTO-400))

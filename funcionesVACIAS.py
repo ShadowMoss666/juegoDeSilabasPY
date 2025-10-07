@@ -1,37 +1,40 @@
 from operator import truediv
 from principal import *
 from configuracion import *
+from funcionesSeparador import *
 import random
 import math
 
 
+def lectura_lemario(archivo, salida):
+    linea = archivo.readlines()
+    for i in range(len(linea)):
+        salida.append(linea[i].strip())
 
-def lectura(archivo, salida):
-    datos = archivo.readlines()
-    for i in range(len(datos)):
-        salida.append(datos[i])
-    
 
-def nuevaPalabra(lista):
-    i = random.randint(1,len(lista))
-    for palabra in lista:
-        return lista[i]
+def nueva_palabra(lista_palabras_diccionario):
+    i = random.randint(1, len(lista_palabras_diccionario))
+    for palabra in lista_palabras_diccionario:
+        return lista_palabras_diccionario[i]
 
-def silabasTOpalabra(silaba):
-    pal = ""
-    for char in silaba:
+
+def silabas_to_palabra(palabra_en_silabas):
+    ret = ""
+    for char in palabra_en_silabas:
         if char == "-" or char == " ":
             pass
-        else: pal += char
-    return pal
+        else:
+            ret += char
+    return ret
 
 
-def palabraTOsilaba(palabra):
-    pass
+def palabra_to_silabas(palabra):
+    return separador(palabra)
 
-def esCorrecta(palabraEnSilabasEnPantalla, palabra):
-    return True
+
+def es_correcta(palabra_en_pantalla_en_silabas, palabra):
+    return palabra_en_pantalla_en_silabas == palabra
+
 
 def puntaje(palabra):
-    return 5
-
+    return len(palabra)
