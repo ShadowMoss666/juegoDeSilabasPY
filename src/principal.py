@@ -21,6 +21,8 @@ def main():
     pygame.mixer.init()  # para los sonidos
 
     sonido_tecla = pygame.mixer.Sound("src/resources/tecla_presionada.wav")
+    sonido_palabra_incorrecta = pygame.mixer.Sound(
+        "src/resources/palabra_incorrecta.wav")
 
     # Preparar la ventana
     pygame.display.set_caption("El juego del Mago Goma...")
@@ -78,6 +80,7 @@ def main():
                     if es_correcta(palabra_en_pantalla_en_silabas, palabra_usuario):
                         puntos += puntaje(palabra_en_pantalla)
                     else:
+                        sonido_palabra_incorrecta.play()
                         puntos -= int(puntaje(palabra_en_pantalla)/2)
 
                     # elige una al azar
