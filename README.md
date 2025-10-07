@@ -1,12 +1,14 @@
 # Juego de Silabas en Python
 
 ## **Reglas del juego**
+
 El jugador cuenta con 60 segundos para acertar la mayor cantidad de palabras y se le
 suman puntos por las respuestas correctas o se le restan por las incorrectas.
 
 ## **Opcionales**
+
 - ~~Separar en silabas:~~
-  Hacer tu propia función para separar una palabra en sílabas o buscar una implementación en internet. 
+  Hacer tu propia función para separar una palabra en sílabas o buscar una implementación en internet.
 - Longitu mínima:
   Toma de la lista de palabras solo aquellas que tengan más de cierta cantidad de caracteres.
 - Efectos de sonido:
@@ -18,7 +20,8 @@ suman puntos por las respuestas correctas o se le restan por las incorrectas.
   - No permitir repetir palabras.
   - Tener varios archivos de lemarios ordenados por nivel de dificultad para separar en sílabas.
 
-## **Aclaraciones** 
-El juego funcionaba cuando lo entregamos y cumplía con las consignas, pero parece que ahora está roto.
-Obviamente es un codigo "malo" para los estandares que aprendimos a lo largo de la carrera, pero la intención principal de este repositorio es ir mejorando dicho codigo, quizás agregarle funcionalidades nuevas y mejoras esteticas. 
+## **Aclaraciones**
 
+- Este es un pequeño juego que nos dieron a modo de introducción a la programación, no tiene mucha complejidad, pero para aprender a trabajar con variables, funciones y condicionales está interesante.
+- El juego funcionaba cuando lo entregamos y cumplía con las consignas, pero parece que ahora está roto.
+- Obviamente es un codigo "malo" para los estandares que aprendimos a lo largo de la carrera, pero la intención principal de este repositorio es ir mejorando dicho codigo, quizás agregarle funcionalidades nuevas y mejoras esteticas.
