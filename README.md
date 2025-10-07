@@ -1,4 +1,4 @@
-# juegoDeSilabasPY
+# Juego de Silabas en Python
 
 ## **Reglas del juego**
 El jugador cuenta con 60 segundos para acertar la mayor cantidad de palabras y se le
