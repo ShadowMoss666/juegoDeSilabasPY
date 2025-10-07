@@ -35,7 +35,7 @@ def main():
     lemario_en_silabas = []
     lista_palabras_diccionario = []  # array con todas las palabras del diccionario
 
-    lemario = open("lemario.txt", "r")
+    lemario = open("src/lemario.txt", "r")
 
     # lectura del diccionario
     lectura_lemario(lemario, lista_palabras_diccionario)
