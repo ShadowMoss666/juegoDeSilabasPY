@@ -18,12 +18,16 @@ def main():
     pygame.mixer.init()  # para los sonidos
 
     sonido_tecla = pygame.mixer.Sound("src/resources/tecla_presionada.wav")
+    sonido_tecla.set_volume(VOL_TECLA)
     sonido_palabra_incorrecta = pygame.mixer.Sound(
         "src/resources/palabra_incorrecta.wav")
+    sonido_palabra_incorrecta.set_volume(VOL_PALABRA_INCORRECTA)
     sonido_palabra_correcta = pygame.mixer.Sound(
         "src/resources/palabra_correcta.wav")
+    sonido_palabra_correcta.set_volume(VOL_PALABRA_CORRECTA)
     sonido_fin_de_juego = pygame.mixer.Sound(
         "src/resources/fin_de_juego.wav")
+    sonido_fin_de_juego.set_volume(VOL_FINAL_JUEGO)
 
     # Preparar la ventana
     pygame.display.set_caption("El juego del Mago Goma...")
