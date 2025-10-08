@@ -11,7 +11,7 @@ suman puntos por las respuestas correctas o se le restan por las incorrectas.
   Hacer tu propia función para separar una palabra en sílabas o buscar una implementación en internet.
 - Longitu mínima:
   Toma de la lista de palabras solo aquellas que tengan más de cierta cantidad de caracteres.
-- Efectos de sonido:
+- ~~Efectos de sonido:~~
   Hacer que el juego reproduzca efectos de sonido cuando sucedan los eventos más importantes.
 - Diferentes niveles:
   Que el usuario tenga opciones de niveles donde se modifique el juego, por ejemplo:
