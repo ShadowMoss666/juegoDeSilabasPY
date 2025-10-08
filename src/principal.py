@@ -1,8 +1,5 @@
 #! /usr/bin/env python
 import os
-import random
-import sys
-import math
 import pygame
 
 from pygame.locals import *
@@ -40,7 +37,7 @@ def main():
 
     puntos = 0
     palabra_usuario = ""
-    lemario_en_silabas = []
+    # lemario_en_silabas = []
     lista_palabras_diccionario = []  # array con todas las palabras del diccionario
 
     lemario = open("src/lemario.txt", "r")
@@ -50,8 +47,8 @@ def main():
 
     # elige una al azar
     palabra_en_pantalla = nueva_palabra(lista_palabras_diccionario)
-##
-    palabra_en_pantalla_anterior = ""
+
+    # palabra_en_pantalla_anterior = ""
     dibujar_en_pantalla(screen, palabra_usuario,
                         palabra_en_pantalla, puntos, segundos)
 

@@ -3,7 +3,6 @@ from principal import *
 from configuracion import *
 from funcionesSeparador import *
 import random
-import math
 
 
 def lectura_lemario(archivo, salida):
